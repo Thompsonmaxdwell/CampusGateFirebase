@@ -1,0 +1,279 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    background-color: rgba(152, 251, 152, 0.158);
+}
+
+/* header section styling */
+header{
+    width: 100%;
+    padding: 20px;
+    background-color: #ffffff;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+header nav.logo{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header nav.menu{
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+header nav li{
+    list-style: none;
+}
+
+header nav li a{
+    text-decoration: none;
+    color: #000;;
+}
+
+
+/**
+|| Carousel SECTION
+*/
+
+.slider_wrapper_tracker {
+    /* background-color: #f6f6f6ad; */
+    /* width: 95%;  */
+    /* margin: 0 auto; */
+}
+
+
+.slider_wrapper_tracker .slider_content_tracker {
+    position: relative;
+    width: 100%;
+    margin: 30px auto;
+    overflow: hidden;
+    height: 400px;
+    box-sizing: border-box;
+    background-color: #3737ce;
+    border-radius: 5px;
+}
+    
+    .slider_wrapper_tracker .slide_container {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+.slider_wrapper_tracker .slide {
+    text-align: center;
+    min-width: 100%;
+    display: block;
+    height: 400px;
+    overflow-x: hidden; 
+}
+
+.slider_wrapper_tracker .slide .slide_img {
+    width: 100%;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: block;
+    object-fit: cover;
+}
+
+.slider_wrapper_tracker .slide .caption {
+    position: relative;
+    z-index: 1;
+    padding: 30px;
+    width: 100%;
+    margin: 50px auto;
+    color: white; 
+}
+
+
+.slider_wrapper_tracker .slide .caption h1 {
+    font-size: 25px; 
+}
+
+
+.slider_wrapper_tracker .slide .caption p {
+    font-size: 1rem;
+}
+
+.slider_wrapper_tracker .carousel_btn_wrapper {
+    width: 110px;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    right: 20px;
+    bottom: 20px; 
+}
+.slider_wrapper_tracker .carousel_btn_wrapper button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    background-color: #e08a34e1;
+    outline: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer; 
+}
+
+/* Register Invitation section */
+
+section.register{
+    width: 95%;
+    margin: 0 auto;
+    padding: 30px;
+    text-align: center;
+    background-color: #e08934;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+section .register_text{
+    padding-bottom: 25px;
+}
+
+section .register_btn a{
+    text-decoration: none;
+    color: black;    
+}
+
+section .register_btn{
+    display: inline-block;
+    background-color: white;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.event_container{
+    width: 90%;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.event:nth-of-type(2){
+    background-color: #ffc3a7;
+}
+
+.event:nth-of-type(3){
+    background-color: #ffc3a7;
+}
+
+.event{
+    padding: 30px 0;
+    
+    background-color: #ff80aaab;
+    width: 95%;
+    margin: 40px auto;
+}
+
+.event_card{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.event_card a{
+    text-decoration: none;
+    color: black;
+}
+
+.event_img{
+    width: 100%;
+    height: 100%;
+}
+
+.event_img img{
+    width: 100%;
+    height: inherit;
+    border-radius: 4px;
+    box-sizing: border-box;
+    object-fit: cover;
+}
+
+.event_info:nth-of-type(2){
+    background-color: #ff80aa;
+}
+
+.events, .resourse, .contact{
+    width: 100%;
+    height: auto;
+}
+
+.title, 
+.time-start,
+.time-stop{
+    padding: 5px 0;
+    color: #222222d5;
+}
+
+
+@media (max-width: 769px) {
+        .slider_wrapper_tracker .slide .caption {
+            margin: 50px; 
+    } 
+}
+
+@media (max-width: 441px) {
+    .slider_wrapper_tracker .slide .caption h1 {
+        font-size: 15px; 
+    } 
+}
+
+@media (max-width: 441px) {
+
+    .slider_wrapper_tracker {
+        padding: 15px; 
+    }
+}
+
+@media (max-width: 730px){
+    header{
+        width: 100%;
+        flex-direction: column;
+    }
+
+    header nav.logo{
+        width: 100%;
+        padding-bottom: 10px;
+    }
+
+    header nav.menu{
+        width: 100%;
+        flex-wrap: wrap;
+        line-height: 1.8;
+    }
+}
+
+@media( min-width: 750px){
+    .register_btn{
+        /* width: 30%; */
+        margin: 0 auto;
+    }
+
+    .event_container{
+        width:70%;
+        margin: 0 auto;
+        padding: 50px 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+}
