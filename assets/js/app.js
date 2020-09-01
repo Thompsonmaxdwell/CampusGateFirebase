@@ -41,4 +41,4 @@ const slide_container_Event = (e) => {
 next_slide.addEventListener('click', next_Slide_event);
 prev_slide.addEventListener('click', prev_Slide_Event);
 slide_container.addEventListener('transitionend', slide_container_Event);
-setInterval(next_Slide_event, 6000);
+// setInterval(next_Slide_event, 6000);
