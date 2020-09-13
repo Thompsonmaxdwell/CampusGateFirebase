@@ -6,237 +6,202 @@
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/font/css/all.css">
     <title>Campus Gate</title>
+  
 </head>
 <body>
-    <main class="main_wrapper">
-        <header id="home">
-            <nav class="logo">
-                <h3>Campus Gate</h3>
-            </nav>
-           <nav class="menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#event">Events</a></li>
-                <li><a href="#resourse">Resourses</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-           </nav>
-        </header>
-
-    <div class="slider_wrapper_tracker">
-            <!-- <h2 class="header head"> CAROUSEL</h2> -->
-            <div class="slider_content_tracker">
-                    <div class="slide_container">
-        
-                        <div class="slide" id="last_slide">
-                            <div class="caption">
-                                <h1>First Slide</h1>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam aliquid unde incidunt!</p>
-                            </div>
-                        </div>
-                        <div class="slide ">
-                            <div class="caption">
-                                <h1>Slider One</h1>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam aliquid unde incidunt!</p>
-                            </div>
-                            <img src="./assets/img/003.webp" alt="" class="slide_img">
-                        </div>
-                        <div class="slide">
-                            <div class="caption">
-                                <h1>Slider Two</h1>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam aliquid unde incidunt!</p>
-                            </div>
-                            <img src="./assets/img/006.jpg" alt="" class="slide_img">
-                        </div>
-                        
-                        <div class="slide">
-                            <div class="caption">
-                                <h1>Slider three</h1>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam aliquid unde incidunt!</p>
-                            </div>
-                            <img src="./assets/img/004.jpg" alt="" class="slide_img">
-                        </div>
-                        <div class="slide">
-                            <div class="caption">
-                                <h1>Slider three</h1>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam aliquid unde incidunt!</p>
-                            </div>
-                            <img src="./assets/img/005.jpg" alt="" class="slide_img">
-                        </div>
-                        <div class="slide">
-                            <div class="caption">
-                                <h1>Slider Four</h1>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam aliquid unde incidunt!</p>
-                            </div>
-                            <img src="./assets/img/006.jpg" alt="" class="slide_img">
-        
-                        </div>
-                        <div class="slide" id="first_slide">
-                            <div class="caption">
-                                <h1> fist Slide</h1>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam aliquid unde incidunt!</p>
-                            </div>
-                            <img src="./assets/img/003.webp" alt="" class="slide_img">
-                        </div>
-                    </div>
-        
-                    <div class="carousel_btn_wrapper">
-                        <div><button class="prev_slide"><i class="fa fa-arrow-left"></i></button></div>
-                        <div><button class="next_slide"><i class="fa fa-arrow-right"></i></button></div>
-                    </div>
-        
+    <!-- ***************************************************************************** -->
+    <div class="carousel">
+        <div class="carousel_track-container">
+            <ul class="carousel_track">
+                <li class="carousel_slide current_slide">
+                    <img class="carousel_images" src="/assets/image/slide_4.jpg" alt="">
+                </li>
+                <li class="carousel_slide">
+                    <img class="carousel_images"  src="/assets/image/slide_3.jpg" alt="">
+                </li>
+                <li class="carousel_slide">
+                    <img class="carousel_images"  src="/assets/image/slide_5.jpg" alt="">
+                </li>
+                <li class="carousel_slide">
+                    <img class="carousel_images"  src="/assets/image/slide_6.jpg" alt="">
+                </li>
+                <li class="carousel_slide">
+                    <img class="carousel_images"  src="/assets/image/slide_8.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+        <div class="slide_button_wrapper">
+            <button class="carousel_button carousel_button-left"><i class="fa fa-chevron-left"></i></button>
+            <button class="carousel_button carousel_button-right"><i class="fa fa-chevron-right"></i></button>
+        </div>
+        <div class="carousel_nav">
+            <button class="carousel_indicator current_slide"></button>
+            <button class="carousel_indicator"></button>
+            <button class="carousel_indicator"></button>
+            <button class="carousel_indicator"></button>
+            <button class="carousel_indicator"></button>
+        </div>
+    </div>
+ <!-- ***************************************************************************** -->
+<section class="registration">
+    <form class="form">
+      <div  class="names__section">
+          <h2 class="title">Names</h2>
+             
+            <div class="section_space first_box">
+               <label for="usr">First Name <span class="star">*</span></label>
+               <input type="text" class="input" name="firstName" placeholder="First Name">
+               <p class="error"></p>
             </div>
-        
+            
+            <div class="section_space">
+                <label for="pwd">Last Name <span class="star">*</span></label>
+                <input type="text" class="input" name="lastName" placeholder="Last Name">
+                <p class="error"></p>
+            </div>
+
+      </div>
+
+      <!-- Department -->
+       <div  class="names__section">
+          <h2 class="title">School</h2>
+             
+            <div class="section_space first_box">
+               <label for="usr">Name of School <span class="star">*</span></label>
+               <input type="text" class="input" name="schoolName" placeholder="Enter your School">
+               <p class="error"></p>
+            </div>
+            
+            <div class="section_space">
+                <label for="pwd">Department <span class="star">*</span></label>
+                <input type="text" class="input" name="department" placeholder="Enter your Department">
+                <p class="error"></p>
+            </div>
+
+      </div>
+
+      <!-- Level -->
+
+         <div  class="names__section">
+            <h2 class="title">Level</h2>
+           
+            <div class="section_space first_box">
+            
+              <div class="checkbox_wrapper">
+                <input type="radio" name="level"  value="100"  checked>
+                <p>100</p>
+             </div>
+
+              <div class="checkbox_wrapper">
+                <input type="radio"  name="level"  value="200">
+                <p>200</p>
+             </div>
+
+              <div class="checkbox_wrapper">
+                <input type="radio" name="level"  value="300">
+                <p>300</p>
+             </div>
+             
+              <div class="checkbox_wrapper">
+                <input type="radio"  name="level" value="400">
+                <p>400</p>
+             </div>
+
+              <div class="checkbox_wrapper">
+                <input type="radio"  name="level" value="500">
+                <p>500</p>
+             </div>
+             <div class="checkbox_wrapper">
+                <input type="radio"  name="level" value="600">
+                <p>600</p>
+             </div>
+
+              <div class="checkbox_wrapper">
+                <input type="radio"  name="level" value="ND 1">
+                <p>ND 1</p>
+             </div>
+
+               <div class="checkbox_wrapper">
+                <input type="radio"  name="level" value="ND 2">
+                <p>Nd 2</p>
+             </div>
+
+              <div class="checkbox_wrapper">
+                <input type="radio"  name="level" value="HND 1">
+                <p>HND 1</p>
+             </div>
+
+              <div class="checkbox_wrapper">
+                <input type="radio"  name="level" value="HND 2">
+                <p>HND 2</p>
+             </div>
+
+              <div class="checkbox_wrapper">
+                <input type="radio"  name="level" value="Jambit">
+                <p>Jambit</p>
+             </div>
+
+            <div class="checkbox_wrapper">
+                <input type="radio"  name="level" value="I T Student">
+                <p>I T Student</p>
+             </div>
+
+              <div class="checkbox_wrapper">
+                <input type="radio"  name="level" value="other" id="otherRadio">
+                <div class="other_wrapper">
+                    <p class="other_txt">Other:</p>
+                    <div>
+                        <input type="text" name="other" class="other">
+                        <p class="error"></p>
+                   </div>
+                </div>
+
+             </div> 
+          </div>
     </div>
 
-    <section class="register">
-        <div class="register_text">
-            <h2>Campus Gate registration 2020 is Open Register Now</h2>
+        <!-- Followship -->
+        <div  class="names__section">
+            <h2 class="title">Followship</h2>
+               
+              <div class="section_space first_box">
+                 <label for="usr">Name of Campus Followship <span class="star">*</span></label>
+                 <input type="text" class="input" name="followship" placeholder="Enter your Followship Name..">
+                 <p class="error"></p>
+              </div>
+              
+              <div class="section_space">
+                  <label for="pwd"> Position on-Campus Followship  (if not any, type none).<span class="star">*</span></label>
+                  <input type="text" class="input" name="positionOfFollowship" placeholder="Enter your Position">
+                  <p class="error"></p>
+              </div>
+  
         </div>
-        <div class="register_btn">
-            <a href="./register.html">REGISTER NOW</a>
+
+
+           <!-- Contact -->
+           <div  class="names__section">
+            <h2 class="title">Contact</h2>
+               
+              <div class="section_space first_box">
+                 <label for="usr">Whatsapp Number <span class="star">*</span></label>
+                 <input type="text" class="input" name="whatsappName" placeholder="Enter your Whatsapp Number">
+                 <p class="error"></p>
+              </div>
+              
+              <div class="section_space">
+                  <label for="pwd">Email<span class="star">*</span></label>
+                  <input type="email" class="input" name="email" placeholder="Enter your Email">
+                  <p class="error"></p>
+              </div>
+  
         </div>
-    </section>
+        <button class="submitBtn">Submit</button>
+    </form>
+</section>
 
-    <section class="section_wrapper">
 
-        <section class="event_container" id="event">
-
-            <div class="event">
-                <div class="event_card">
-                    <a href="./register.html">
-                        <div class="event_img">
-                            <img src="./assets/img/006.jpg" alt="">
-                        </div>
-
-                        <div class="event_info">
-                            <h3 class="title">FOCUS: Your Time is Now</h3>
-
-                            <p class="time-start">STARTS: 23th sep 2020 </p>
-
-                            <p class="time-stop">STOPS: 25th sep 2020 </p>
-
-                            <a href="./register.html" class="register_btn">REGISTER NOW</a>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="event">
-                <div class="event_card">
-                    <a href="./register.html">
-                        <div class="event_img">
-                            <img src="./assets/img/006.jpg" alt="">
-                        </div>
-
-                        <div class="event_info">
-                            <h3 class="title">FOCUS: Your Time is Now</h3>
-
-                            <p class="time-start">STARTS: 23th sep 2020 </p>
-
-                            <p class="time-stop">STOPS: 25th sep 2020 </p>
-
-                            <a href="./register.html" class="register_btn">REGISTER NOW</a>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="event">
-                <div class="event_card">
-                    <a href="./register.html">
-                        <div class="event_img">
-                            <img src="./assets/img/006.jpg" alt="">
-                        </div>
-
-                        <div class="event_info">
-                            <h3 class="title">FOCUS: Your Time is Now</h3>
-
-                            <p class="time-start">STARTS: 23th sep 2020 </p>
-
-                            <p class="time-stop">STOPS: 25th sep 2020 </p>
-
-                            <a href="./register.html" class="register_btn">REGISTER NOW</a>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="event">
-                <div class="event_card">
-                    <a href="./register.html">
-                        <div class="event_img">
-                            <img src="./assets/img/006.jpg" alt="">
-                        </div>
-
-                        <div class="event_info">
-                            <h3 class="title">FOCUS: Your Time is Now</h3>
-
-                            <p class="time-start">STARTS: 23th sep 2020 </p>
-
-                            <p class="time-stop">STOPS: 25th sep 2020 </p>
-
-                            <a href="./register.html" class="register_btn">REGISTER NOW</a>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-          
-
-        </section>
-
-        <Section class="resourse_container" id="resourse">
-            <h2>Audio Messages</h2>
-           <figure class="resourse_audio">
-                <audio controls>
-                    <source src="./assets/audio/B1 (0).mp3" type="audio/mpeg">
-                </audio>
-                
-                <audio controls>
-                    <source src="./assets/audio/B1 (1).mp3" type="audio/mpeg">
-                </audio>
-
-                <audio controls>
-                    <source src="./assets/audio/B1 (2).mp3" type="audio/mpeg">
-                </audio>
-
-                <audio controls>
-                    <source src="./assets/audio/B1 (3).mp3" type="audio/mpeg">
-                </audio>
-
-                <audio controls>
-                    <source src="./assets/audio/B1 (0).mp3" type="audio/mpeg">
-                </audio>
-                
-                <audio controls>
-                    <source src="./assets/audio/B1 (1).mp3" type="audio/mpeg">
-                </audio>
-
-                <audio controls>
-                    <source src="./assets/audio/B1 (2).mp3" type="audio/mpeg">
-                </audio>
-
-                <audio controls>
-                    <source src="./assets/audio/B1 (3).mp3" type="audio/mpeg">
-                </audio>
-
-           </figure>
-
-           <h2>Video Messages</h2>
-           <figure>
-               <iframe src="" frameborder="0">
-                  
-               </iframe>
-           </figure>
-        </section>
-
-        <section class="contact" id="contact">
-            <h3>CONTACT</h3>
-        </section> 
-    </section>
-    <footer>
-
-    </footer>
-    </main>
+     <script src="/form.js"></script>
     <script src="./assets/js/app.js"></script>
 </body>
 </html>
