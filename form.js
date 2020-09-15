@@ -1,6 +1,72 @@
+import {database, auth} from  './firebaseKey.js';
 const form = document.querySelector('.form')
 const inputs = document.querySelectorAll('.input');
 const checkbox_wrapper = document.querySelectorAll('.checkbox_wrapper')
+const login_form_wrapper = document.querySelector('.login_form_wrapper')
+const login = document.querySelector('.login')
+const login_form = document.querySelector('.login_form')
+let table = document.querySelector('table')
+
+login.addEventListener('click', e=>{
+    login_form_wrapper.style.display = 'block';
+
+    login_form_wrapper.addEventListener('click', e=>{
+        
+        if(e.target.classList.contains('login_form_wrapper')){
+            login_form_wrapper.style.display = 'none';
+        }
+    })
+});
+
+login_form.addEventListener('submit', e=>{
+    e.preventDefault();
+let email = e.target.querySelector('#email').value;
+let password = e.target.querySelector('#password').value;
+
+auth.signInWithEmailAndPassword(email, password).then(res =>{
+      console.log(res)
+      login_form_wrapper.style.display = 'none';
+      window.location = '/admin.html'
+    })
+    .catch(error =>{
+       document.querySelector('.form_Error').innerHTML = (error.message)
+    
+  
+    })
+   
+})
+
+auth.onAuthStateChanged(user =>{
+    if(user){
+       database.collection('users').get().then(snapshot =>{
+          
+        snapshot.docs.forEach((data, i) =>{
+            let tbody = document.createElement("tbody")
+             tbody.innerHTML = `
+               <tr> 
+                
+                <td>${i}</td>
+                <td>${data.data().firstName}</td>
+                <td>${data.data().lastName}</td>
+                <td>${data.data().schoolName}</td>
+                <td>${data.data().department}</td>
+                <td>${data.data().otherValue}</td>
+                <td>${data.data().followship}</td>
+                <td>${data.data().positionOfFollowship}</td>
+                <td>${data.data().whatsappName}</td>
+                <td>${data.data().email}</td>
+                </tr>
+                `
+           table.appendChild(tbody)
+       
+        })
+     })
+    }else {
+
+    }
+})
+
+    
 
 const validate = {
         firstName: {
@@ -16,24 +82,24 @@ const validate = {
     },
     
         schoolName: {
-        schoolName: /^[a-z]+$/i,
+        schoolName: /^[a-z ]+$/i,
         schoolNameValue: '',
-
+        errorMess: 'Special Characters and Numbers are not allowed, + @ # . ? / < , > _ - < . * & % ^ % $ # @ : ; / ( ) = { } [ ] /'
     },
     
         department:{
-        department: /^[a-z]+$/i,
+        department: /^[a-z ]+$/i,
         departmentValue: '',
         errorMess: 'Special Characters and Numbers are not allowed, + @ # . ? / < , > _ - < . * & % ^ % $ # @ : ; / ( ) = { } [ ] /'
     },
     
         followship: {
-        followship: /^[a-z]+$/i,
+        followship: /^[a-z ]+$/i,
         followshipValue: '',
         errorMess: 'Special Characters and Numbers are not allowed, + @ # . ? / < , > _ - < . * & % ^ % $ # @ : ; / ( ) = { } [ ] /'
     },
         positionOfFollowship: {
-        positionOfFollowship: /^[a-z]+$/i,
+        positionOfFollowship: /^[a-z ]+$/i,
         positionOfFollowshipValue: '',
         errorMess: 'Special Characters and Numbers are not allowed, + @ # . ? / < , > _ - < . * & % ^ % $ # @ : ; / ( ) = { } [ ] /'
     },
@@ -63,7 +129,7 @@ Array.from(checkbox_wrapper).forEach(checkbox =>{
 
     if(checkbox.querySelector('input').checked){
         let inputValu = checkbox.querySelector('input')
-        validate['other'].otherValue = inputValu.value
+        validate['other'].otherValue = inputValu.value;
        
     }
     checkbox.querySelector('input').addEventListener('change', e=>{
@@ -164,18 +230,41 @@ form.addEventListener('submit', e => {
 
         validate[input.attributes.name.value].firstNameValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
         validate[input.attributes.name.value].lastNameValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
-        validate[input.attributes.name.value].schoolNameValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
+        // validate[input.attributes.name.value].schoolNameValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
         validate[input.attributes.name.value].departmentValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
         validate[input.attributes.name.value].followshipValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
         validate[input.attributes.name.value].positionOfFollowshipValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
         validate[input.attributes.name.value].whatsappNumberValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
         validate[input.attributes.name.value].emailValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
 
-
-        if (lastName && firstName && schoolName && department && followship && positionOfFollowship && whatsappName && email && otherValue) {
-            console.log('Send to Database');
-        }
-
-
     })
+    if (lastName && firstName && schoolName && department && followship && positionOfFollowship && whatsappName && email && otherValue) {
+       
+          database.collection('users').add(
+            {
+                firstName:firstName,
+                lastName:lastName,
+                schoolName:schoolName,
+                department:department,
+                followship:followship,
+                positionOfFollowship:positionOfFollowship,
+                whatsappName:whatsappName,
+                email:email,
+                otherValue:otherValue
+            }
+            ).then(res =>{
+        let success = document.querySelector('.success')
+        success.innerHTML = 'You Have successfully register with ' + email;
+        success.style.display = 'flex';
+        
+        inputs.forEach(input =>{
+            input.value = ''
+        })
+
+        setTimeout(()=>{
+            success.style.display = 'none'
+        }, 5000)
+ 
+     })
+    }
 })

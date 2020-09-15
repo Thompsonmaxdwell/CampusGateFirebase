@@ -5,16 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/font/css/all.css">
-    <title>Campus Gate</title>
+    <title>Campus Gate | Home</title>
   
 </head>
 <body>
+
+    <header>
+        <a href="/index.html">Campus Gate</a>
+        <button class="login" id="login">Login</button>
+    </header>
+
+    <div class="login_form_wrapper">
+        <form action="" class="login_form">
+            <h2>Admin login</h2>
+            <div>
+                <label for="email">Email</label>
+              <input id="email" type="text" placeholder="E-mail"> 
+            </div>
+            <div>
+                <label for="password">Password</label>
+               <input id="password" type="password" placeholder="password">
+               <p class="form_Error"></p>
+            </div>
+            <button class="login">login</button>
+        </form>
+    </div>
+
     <!-- ***************************************************************************** -->
     <div class="carousel">
         <div class="carousel_track-container">
             <ul class="carousel_track">
                 <li class="carousel_slide current_slide">
-                    <img class="carousel_images" src="/assets/image/slide_4.jpg" alt="">
+                    <img class="carousel_images" src="/assets/image/cg.jpg" alt="">
                 </li>
                 <li class="carousel_slide">
                     <img class="carousel_images"  src="/assets/image/slide_3.jpg" alt="">
@@ -43,21 +65,40 @@
         </div>
     </div>
  <!-- ***************************************************************************** -->
+
+ <header>
+    <h1>Register For Campus Gate 2020 Here !</h1>
+</header>
+
+<figure>
+    <!-- <img src="./assets/img/campus gate 2020.jpg" alt=""> -->
+</figure>
+
 <section class="registration">
     <form class="form">
       <div  class="names__section">
           <h2 class="title">Names</h2>
              
             <div class="section_space first_box">
-               <label for="usr">First Name <span class="star">*</span></label>
-               <input type="text" class="input" name="firstName" placeholder="First Name">
-               <p class="error"></p>
+                <div class="logo_hold">
+                <label for="usr">First Name <span class="star">*</span></label>
+                <input type="text" class="input" name="firstName" placeholder="First Name">
+                <p class="error"></p>
+                </div>
+                <figure>
+                    <img src="/assets/img/campus gate 2020.jpg" alt="">
+                </figure>
             </div>
             
             <div class="section_space">
-                <label for="pwd">Last Name <span class="star">*</span></label>
-                <input type="text" class="input" name="lastName" placeholder="Last Name">
-                <p class="error"></p>
+                 <div class="logo_hold">
+                    <label for="pwd">Last Name <span class="star">*</span></label>
+                    <input type="text" class="input" name="lastName" placeholder="Last Name">
+                    <p class="error"></p>
+                </div>
+                <figure>
+                    <img src="/assets/img/campus gate 2020.jpg" alt="">
+                </figure>
             </div>
 
       </div>
@@ -67,15 +108,26 @@
           <h2 class="title">School</h2>
              
             <div class="section_space first_box">
-               <label for="usr">Name of School <span class="star">*</span></label>
-               <input type="text" class="input" name="schoolName" placeholder="Enter your School">
-               <p class="error"></p>
+                <div class="logo_hold">
+                    <label for="usr">Name of School <span class="star">*</span></label>
+                    <input type="text" class="input" name="schoolName" placeholder="Enter your School">
+                    <p class="error"></p>
+                </div>
+
+                <figure>
+                    <img src="/assets/img/campus gate 2020.jpg" alt="">
+                </figure>
             </div>
             
             <div class="section_space">
-                <label for="pwd">Department <span class="star">*</span></label>
-                <input type="text" class="input" name="department" placeholder="Enter your Department">
-                <p class="error"></p>
+                <div class="logo_hold">    
+                    <label for="pwd">Department <span class="star">*</span></label>
+                    <input type="text" class="input" name="department" placeholder="Enter your Department">
+                    <p class="error"></p>
+                </div>
+                <figure>
+                    <img src="/assets/img/campus gate 2020.jpg" alt="">
+                </figure>
             </div>
 
       </div>
@@ -86,97 +138,110 @@
             <h2 class="title">Level</h2>
            
             <div class="section_space first_box">
+             <div class="logo_hold">
+                 <div class="checkbox_wrapper">
+                     <input type="radio" name="level"  value="100"  checked>
+                     <p>100</p>
+            </div>
             
-              <div class="checkbox_wrapper">
-                <input type="radio" name="level"  value="100"  checked>
-                <p>100</p>
-             </div>
-
-              <div class="checkbox_wrapper">
+            <div class="checkbox_wrapper">
                 <input type="radio"  name="level"  value="200">
                 <p>200</p>
-             </div>
-
-              <div class="checkbox_wrapper">
+            </div>
+            
+            <div class="checkbox_wrapper">
                 <input type="radio" name="level"  value="300">
                 <p>300</p>
-             </div>
-             
-              <div class="checkbox_wrapper">
+            </div>
+            
+            <div class="checkbox_wrapper">
                 <input type="radio"  name="level" value="400">
                 <p>400</p>
-             </div>
-
-              <div class="checkbox_wrapper">
+            </div>
+            
+            <div class="checkbox_wrapper">
                 <input type="radio"  name="level" value="500">
                 <p>500</p>
-             </div>
-             <div class="checkbox_wrapper">
-                <input type="radio"  name="level" value="600">
-                <p>600</p>
-             </div>
-
-              <div class="checkbox_wrapper">
-                <input type="radio"  name="level" value="ND 1">
-                <p>ND 1</p>
-             </div>
-
-               <div class="checkbox_wrapper">
-                <input type="radio"  name="level" value="ND 2">
-                <p>Nd 2</p>
-             </div>
-
-              <div class="checkbox_wrapper">
-                <input type="radio"  name="level" value="HND 1">
-                <p>HND 1</p>
-             </div>
-
-              <div class="checkbox_wrapper">
-                <input type="radio"  name="level" value="HND 2">
-                <p>HND 2</p>
-             </div>
-
-              <div class="checkbox_wrapper">
-                <input type="radio"  name="level" value="Jambit">
-                <p>Jambit</p>
-             </div>
-
+            </div>
             <div class="checkbox_wrapper">
-                <input type="radio"  name="level" value="I T Student">
-                <p>I T Student</p>
-             </div>
-
-              <div class="checkbox_wrapper">
-                <input type="radio"  name="level" value="other" id="otherRadio">
-                <div class="other_wrapper">
-                    <p class="other_txt">Other:</p>
-                    <div>
-                        <input type="text" name="other" class="other">
-                        <p class="error"></p>
-                   </div>
+                 <input type="radio"  name="level" value="600">
+                 <p>600</p>
                 </div>
-
-             </div> 
-          </div>
-    </div>
+                
+                <div class="checkbox_wrapper">
+                    <input type="radio"  name="level" value="ND 1">
+                    <p>ND 1</p>
+                </div>
+                
+                <div class="checkbox_wrapper">
+                    <input type="radio"  name="level" value="ND 2">
+                    <p>Nd 2</p>
+                </div>
+                
+                <div class="checkbox_wrapper">
+                    <input type="radio"  name="level" value="HND 1">
+                    <p>HND 1</p>
+                </div>
+                
+                <div class="checkbox_wrapper">
+                    <input type="radio"  name="level" value="HND 2">
+                    <p>HND 2</p>
+                </div>
+                
+                <div class="checkbox_wrapper">
+                    <input type="radio"  name="level" value="Jambit">
+                    <p>Jambit</p>
+                </div>
+                
+                <div class="checkbox_wrapper">
+                    <input type="radio"  name="level" value="I T Student">
+                    <p>I T Student</p>
+                </div>
+                
+                <div class="checkbox_wrapper">
+                    <input type="radio"  name="level" value="other" id="otherRadio">
+                    <div class="other_wrapper">
+                        <p class="other_txt">Other:</p>
+                        <div>
+                            <input type="text" name="other" class="other">
+                            <p class="error"></p>
+                        </div>
+                    </div>
+                    
+                </div> 
+            </div>
+                
+            </div>
+        </div>
 
         <!-- Followship -->
         <div  class="names__section">
+            
             <h2 class="title">Followship</h2>
-               
-              <div class="section_space first_box">
-                 <label for="usr">Name of Campus Followship <span class="star">*</span></label>
-                 <input type="text" class="input" name="followship" placeholder="Enter your Followship Name..">
-                 <p class="error"></p>
-              </div>
-              
+            
+            <div class="section_space first_box">
+                <div class="logo_hold">
+                    <label for="usr">Name of Campus Followship <span class="star">*</span></label>
+                    <input type="text" class="input" name="followship" placeholder="Enter your Followship Name..">
+                    <p class="error"></p>
+                </div>
+                    <figure>
+                        <img src="/assets/img/campus gate 2020.jpg" alt="">
+                    </figure>
+                </div>
+                
               <div class="section_space">
-                  <label for="pwd"> Position on-Campus Followship  (if not any, type none).<span class="star">*</span></label>
-                  <input type="text" class="input" name="positionOfFollowship" placeholder="Enter your Position">
-                  <p class="error"></p>
-              </div>
-  
-        </div>
+                  <div class="logo_hold">
+                      <label for="pwd"> Position on-Campus Followship  (if not any, type none).<span class="star">*</span></label>
+                      <input type="text" class="input" name="positionOfFollowship" placeholder="Enter your Position">
+                      <p class="error"></p>
+                    </div>
+                    <figure>
+                        <img src="/assets/img/campus gate 2020.jpg" alt="">
+                    </figure>
+                </div>
+            </div>
+
 
 
            <!-- Contact -->
@@ -184,24 +249,45 @@
             <h2 class="title">Contact</h2>
                
               <div class="section_space first_box">
-                 <label for="usr">Whatsapp Number <span class="star">*</span></label>
-                 <input type="text" class="input" name="whatsappName" placeholder="Enter your Whatsapp Number">
-                 <p class="error"></p>
+                  <div class="logo_hold">
+                      <label for="usr">Whatsapp Number <span class="star">*</span></label>
+                      <input type="text" class="input" name="whatsappName" placeholder="Enter your Whatsapp Number">
+                      <p class="error"></p>
+                    </div>
+                    <figure>
+                        <img src="/assets/img/campus gate 2020.jpg" alt="">
+                    </figure>
               </div>
               
               <div class="section_space">
-                  <label for="pwd">Email<span class="star">*</span></label>
-                  <input type="email" class="input" name="email" placeholder="Enter your Email">
-                  <p class="error"></p>
+                  <div class="logo_hold">
+                      <label for="pwd">Email<span class="star">*</span></label>
+                      <input type="email" class="input" name="email" placeholder="Enter your Email">
+                      <p class="error"></p>
+                    </div>
+                    <figure>
+                        <img src="/assets/img/campus gate 2020.jpg" alt="">
+                    </figure>
               </div>
   
         </div>
+        <div class="success">success</div>
         <button class="submitBtn">Submit</button>
     </form>
+    
 </section>
 
 
-     <script src="/form.js"></script>
+     <script type="module" src="/form.js" ></script>
     <script src="./assets/js/app.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
+<script type="module" src="./firebaseKey.js"></script>
 </body>
 </html>

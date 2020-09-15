@@ -11,14 +11,137 @@ body{
     background-color: #e08a3427;
 }
 
+header{
+  font-size: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  align-items: center;
+  color: #424242;
+  text-align: center;
+}
 
+header a{
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 600;
+  color: #414141;
+}
 
+/* ================================================================================================ */
+.login{
+  border: none;
+  background-color:#B36900;;
+  color:white;
+  padding:10px 15px;
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 3px;
+}
+
+.logo_hold{
+  width: 100%;
+}
+
+table{
+  text-align: center;
+  width: 70%;
+  margin: 0px auto;
+  background-color: #fff;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+  padding: 15px;
+  text-align: center;
+
+}
+
+/* ================================================================================================ */
+/* login form */
+.login_form_wrapper{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.781);
+  z-index: 3;
+  display: none; 
+}
+
+.login_form{
+  position: absolute;
+  width: 90%;
+  margin: 0 auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: 1px solid grey;
+  display: block;
+  box-shadow: 0px 0px 2px 0px #eee;
+  z-index: 2;
+  padding: 10px;
+}
+@media screen and (min-width:650px){
+  .login_form{
+    width: 55%;
+    max-width: 500px;
+   
+  }
+}
+.login_form h2{
+  text-align: center;
+  font-size: 30px;
+}
+.login_form input{
+  width: 100%;
+  border: 1px solid #B36900;
+  padding: 10px;
+}
+.login_form label{
+  padding:10px 0;
+  display: block;
+}
+.login_form button{
+  margin: 10px 0;
+  width: 100%;
+}
+.form_Error{
+  color: red;
+  text-align: center;
+  padding: 10px;
+}
+/* ================================================================================================ */
+.section_space{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+figure{
+  width: 20%;
+}
+
+figure img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* ============================== */
 .carousel {
     position: relative;
     height: 270px;
     width: 100%;
     margin: 0 auto;
   }
+
   @media screen and (min-width:600px){
     .carousel {
       position: relative;
@@ -27,6 +150,7 @@ body{
       margin: 0 auto;
     }
   }
+
   .carousel .carousel_track-container {
     height: 100%;
     position: relative;
@@ -45,12 +169,13 @@ body{
     bottom: 0;
     width: 100%;
   }
+  
   .carousel .carousel_track-container .carousel_track .carousel_slide .carousel_images {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-   
+    object-fit: cover; 
   }
+
   .carousel .slide_button_wrapper {
     position: absolute;
     bottom: 40px;
@@ -138,13 +263,19 @@ body{
 
 /* Input */
 .names__section .input, .other {
-  width: 50%;
+  width:  80%;
   padding-bottom: 3px;
   border: none;
   display: block;
   background-color: transparent;
   border-bottom: 1px solid #222;
   outline: none;
+}
+
+@media screen and (min-width:600px){
+  .names__section .input, .other {
+    width:  50%;
+  }
 }
 
 /* error */
@@ -184,7 +315,7 @@ body{
   display: flex;
   align-items: center;
   gap: 7px;
-  margin-bottom: 14px;
+  /* margin-bottom: 14px; */
 }
 .checkbox_wrapper input[type="radio"] {
   height:20px;
@@ -220,3 +351,17 @@ body{
   border-radius: 5px;
 }
 
+.success{
+  background-color: green;;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding:5px 10px;
+  font-size: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+  border-radius:5px;
+  
+}
