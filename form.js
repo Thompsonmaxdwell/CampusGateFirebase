@@ -1,6 +1,75 @@
+import {database, auth} from  './firebaseKey.js';
 const form = document.querySelector('.form')
 const inputs = document.querySelectorAll('.input');
 const checkbox_wrapper = document.querySelectorAll('.checkbox_wrapper')
+const login_form_wrapper = document.querySelector('.login_form_wrapper')
+const login = document.querySelector('.login')
+const login_form = document.querySelector('.login_form')
+let table = document.querySelector('table')
+
+login.addEventListener('click', e=>{
+    login_form_wrapper.style.display = 'block';
+
+    login_form_wrapper.addEventListener('click', e=>{
+        
+        if(e.target.classList.contains('login_form_wrapper')){
+            login_form_wrapper.style.display = 'none';
+        }
+    })
+});
+
+login_form.addEventListener('submit', e=>{
+    e.preventDefault();
+let email = e.target.querySelector('#email').value;
+let password = e.target.querySelector('#password').value;
+
+auth.signInWithEmailAndPassword(email, password).then(res =>{
+      console.log(res)
+      login_form_wrapper.style.display = 'none';
+      window.location = '/admin.html'
+    })
+    .catch(error =>{
+       document.querySelector('.form_Error').innerHTML = (error.message)
+    
+  
+    })
+   
+})
+
+auth.onAuthStateChanged(user =>{
+    if(user){
+       database.collection('users').get().then(snapshot =>{
+          
+        snapshot.docs.forEach((data, i) =>{
+            let tbody = document.createElement("tbody")
+             tbody.innerHTML = `
+               <tr> 
+                
+                <td>${i}</td>
+                <td>${data.data().firstName}</td>
+                <td>${data.data().lastName}</td>
+                <td>${data.data().otherValue}</td>
+                <td>${data.data().country}</td>
+                <td>${data.data().state}</td>
+                <td>${data.data().lga}</td>
+                <td>${data.data().schoolName}</td>
+                <td>${data.data().department}</td>
+                <td>${data.data().followship}</td>
+                <td>${data.data().positionOfFollowship}</td>
+                <td>${data.data().whatsappName}</td>
+                <td>${data.data().email}</td>
+                </tr>
+                `
+           table.appendChild(tbody)
+       
+        })
+     })
+    }else {
+
+    }
+})
+
+    
 
 const validate = {
         firstName: {
@@ -14,26 +83,44 @@ const validate = {
         lastNameValue: '',
         errorMess: 'Special Characters and Numbers are not allowed, + @ # . ? / < , > _ - < . * & % ^ % $ # @ : ; / ( ) = { } [ ] /'
     },
+
+        country: {
+        country: /^[a-z ]+$/i,
+        countryValue: '',
+        errorMess: 'Special Characters and Numbers are not allowed, + @ # . ? / < , > _ - < . * & % ^ % $ # @ : ; / ( ) = { } [ ] /'
+    },
+
+        state: {
+        state: /^[a-z ]+$/i,
+        stateValue: '',
+        errorMess: 'Special Characters and Numbers are not allowed, + @ # . ? / < , > _ - < . * & % ^ % $ # @ : ; / ( ) = { } [ ] /'
+    },
+
+        lga: {
+        lga: /^[a-z ]+$/i,
+        lgaValue: '',
+        errorMess: 'Special Characters and Numbers are not allowed, + @ # . ? / < , > _ - < . * & % ^ % $ # @ : ; / ( ) = { } [ ] /'
+    },
     
         schoolName: {
-        schoolName: /^[a-z]+$/i,
+        schoolName: /^[a-z ]+$/i,
         schoolNameValue: '',
-
+        errorMess: 'Special Characters and Numbers are not allowed, + @ # . ? / < , > _ - < . * & % ^ % $ # @ : ; / ( ) = { } [ ] /'
     },
     
         department:{
-        department: /^[a-z]+$/i,
+        department: /^[a-z ]+$/i,
         departmentValue: '',
         errorMess: 'Special Characters and Numbers are not allowed, + @ # . ? / < , > _ - < . * & % ^ % $ # @ : ; / ( ) = { } [ ] /'
     },
     
         followship: {
-        followship: /^[a-z]+$/i,
+        followship: /^[a-z ]+$/i,
         followshipValue: '',
         errorMess: 'Special Characters and Numbers are not allowed, + @ # . ? / < , > _ - < . * & % ^ % $ # @ : ; / ( ) = { } [ ] /'
     },
         positionOfFollowship: {
-        positionOfFollowship: /^[a-z]+$/i,
+        positionOfFollowship: /^[a-z ]+$/i,
         positionOfFollowshipValue: '',
         errorMess: 'Special Characters and Numbers are not allowed, + @ # . ? / < , > _ - < . * & % ^ % $ # @ : ; / ( ) = { } [ ] /'
     },
@@ -60,11 +147,12 @@ const validate = {
 }
 
 Array.from(checkbox_wrapper).forEach(checkbox =>{
-
+    console.log(checkbox.querySelector('input').checked);
     if(checkbox.querySelector('input').checked){
-        let inputValu = checkbox.querySelector('input')
-        validate['other'].otherValue = inputValu.value
-       
+        let inputValue = checkbox.querySelector('input');
+        
+        validate['other'].otherValue = inputValue.value;
+        console.log(inputValue.value);       
     }
     checkbox.querySelector('input').addEventListener('change', e=>{
 
@@ -78,27 +166,27 @@ Array.from(checkbox_wrapper).forEach(checkbox =>{
         
     })
 })
-document.querySelector('.other').addEventListener('keyup', e=>{
-    document.querySelector('#otherRadio').setAttribute('checked', 'true')
+// document.querySelector('.other').addEventListener('keyup', e=>{
+//     document.querySelector('#otherRadio').setAttribute('checked', 'true')
        
-        let field = e.target.attributes.name.value;
-        let result = validate[field][field].test(e.target.value); 
+//         let field = e.target.attributes.name.value;
+//         let result = validate[field][field].test(e.target.value); 
        
 
-        if(result){
-            e.target.nextElementSibling.innerHTML = '';
-            validate[field]['otherValue']  = e.target.value; 
-            e.target.classList.add('borderSuccess');
-            e.target.classList.remove('borderDanger');
+//         if(result){
+//             e.target.nextElementSibling.innerHTML = '';
+//             validate[field]['otherValue']  = e.target.value; 
+//             e.target.classList.add('borderSuccess');
+//             e.target.classList.remove('borderDanger');
 
-        }else {
-            e.target.nextElementSibling.innerHTML = validate[field].errorMess;
-            validate[field]['otherValue']  = ''; 
-            e.target.classList.add('borderDanger');
-            e.target.classList.remove('borderSuccess');
-        }
+//         }else {
+//             e.target.nextElementSibling.innerHTML = validate[field].errorMess;
+//             validate[field]['otherValue']  = ''; 
+//             e.target.classList.add('borderDanger');
+//             e.target.classList.remove('borderSuccess');
+//         }
     
-})
+// })
 
 
 inputs.forEach(input => {
@@ -115,6 +203,11 @@ inputs.forEach(input => {
 
             validate[field].firstNameValue = e.target.value;
             validate[field].lastNameValue = e.target.value;
+
+            validate[field].countryValue = e.target.value;
+            validate[field].stateValue = e.target.value;
+            validate[field].lgaValue = e.target.value;
+
             validate[field].schoolNameValue = e.target.value;
             validate[field].departmentValue = e.target.value;
             validate[field].followshipValue = e.target.value;
@@ -130,6 +223,11 @@ inputs.forEach(input => {
 
             validate[field].firstNameValue = ''
             validate[field].lastNameValue = ''
+
+            validate[field].countryValue = ''
+            validate[field].stateValue = ''
+            validate[field].lgaValue = ''
+
             validate[field].schoolNameValue = ''
             validate[field].departmentValue = ''
             validate[field].followshipValue = ''
@@ -149,6 +247,11 @@ form.addEventListener('submit', e => {
 
     let lastName = validate['lastName'].lastNameValue;
     let firstName = validate['firstName'].firstNameValue;
+
+    let country = validate['country'].countryValue;
+    let state = validate['state'].stateValue;
+    let lga = validate['lga'].lgaValue;
+
     let schoolName = validate['schoolName'].schoolNameValue;
     let department = validate['department'].departmentValue;
     let followship = validate['followship'].followshipValue;
@@ -157,25 +260,56 @@ form.addEventListener('submit', e => {
     let email = validate['email'].emailValue;
     let otherValue = validate['other'].otherValue
 
-
     Array.from(inputs).forEach(input => {
 
         if (input.attributes.name.value === 'level') return;
 
         validate[input.attributes.name.value].firstNameValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
         validate[input.attributes.name.value].lastNameValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
-        validate[input.attributes.name.value].schoolNameValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
+
+        validate[input.attributes.name.value].countryValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
+        validate[input.attributes.name.value].stateValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
+        validate[input.attributes.name.value].lgaValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
+
+
+        // validate[input.attributes.name.value].schoolNameValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
         validate[input.attributes.name.value].departmentValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
         validate[input.attributes.name.value].followshipValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
         validate[input.attributes.name.value].positionOfFollowshipValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
         validate[input.attributes.name.value].whatsappNumberValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
         validate[input.attributes.name.value].emailValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
 
-
-        if (lastName && firstName && schoolName && department && followship && positionOfFollowship && whatsappName && email && otherValue) {
-            console.log('Send to Database');
-        }
-
-
     })
+    if (lastName && firstName && schoolName && department && followship && positionOfFollowship && whatsappName && email && otherValue) {
+       
+          database.collection('users').add(
+            {
+                firstName:firstName,
+                lastName:lastName,
+                country:country,
+                state:state,
+                lga:lga,
+                schoolName:schoolName,
+                department:department,
+                followship:followship,
+                positionOfFollowship:positionOfFollowship,
+                whatsappName:whatsappName,
+                email:email,
+                otherValue:otherValue
+            }
+            ).then(res =>{
+        let success = document.querySelector('.success')
+        success.innerHTML = 'You Have successfully register with ' + email;
+        success.style.display = 'flex';
+        
+        inputs.forEach(input =>{
+            input.value = ''
+        })
+
+        setTimeout(()=>{
+            success.style.display = 'none'
+        }, 5000)
+ 
+     })
+    }
 })

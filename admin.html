@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/font/css/all.css">
+    <title>Campus gate | Admin</title>
+  
+</head>
+<body>
+
+    <header>
+        <a href="/index.html">Campus Gate</a>
+        <button class="login" id="login">Login</button>
+    </header>
+
+    <div class="login_form_wrapper">
+        <form action="" class="login_form">
+            <h2>Admin login</h2>
+            <div>
+                <label for="email">Email</label>
+              <input id="email" type="text" placeholder="E-mail"> 
+            </div>
+            <div>
+                <label for="password">Password</label>
+               <input id="password" type="password" placeholder="password">
+               <p class="form_Error"></p>
+            </div>
+            <!-- <button class="login">login</button> -->
+        </form>
+    </div>
+
+    
+ <div id="User_table">
+     <table>
+         <caption><h3>Campus Gate Regisitered perticipants 2020 : STANDING IN A TIME LIKE THIS.</h3></caption>
+        <thead class="table_header">
+            <tr>
+                <th>S/N</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th> Category</th>
+                <th> Country Of Residence</th>
+                <th> State Of Residence</th>
+                <th> Residence L.G.A</th>
+                <th> Name of School</th>
+                <th> Department</th>
+                <th> followship</th>
+                <th> Position on-Campus Followship</th>
+                <th> Whatsapp Number </th>
+                <th> Email</th>
+            </tr>
+        </thead>
+     </table>
+ </div>
+
+
+ <script type="module" src="/form.js" ></script>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
+    
+<script type="module" src="./firebaseKey.js"></script>
+</body>
+</html>
