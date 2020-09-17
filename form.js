@@ -48,9 +48,12 @@ auth.onAuthStateChanged(user =>{
                 <td>${i}</td>
                 <td>${data.data().firstName}</td>
                 <td>${data.data().lastName}</td>
+                <td>${data.data().otherValue}</td>
+                <td>${data.data().country}</td>
+                <td>${data.data().state}</td>
+                <td>${data.data().lga}</td>
                 <td>${data.data().schoolName}</td>
                 <td>${data.data().department}</td>
-                <td>${data.data().otherValue}</td>
                 <td>${data.data().followship}</td>
                 <td>${data.data().positionOfFollowship}</td>
                 <td>${data.data().whatsappName}</td>
@@ -78,6 +81,24 @@ const validate = {
         lastName: {
         lastName: /^[a-z]+$/i,
         lastNameValue: '',
+        errorMess: 'Special Characters and Numbers are not allowed, + @ # . ? / < , > _ - < . * & % ^ % $ # @ : ; / ( ) = { } [ ] /'
+    },
+
+        country: {
+        country: /^[a-z ]+$/i,
+        countryValue: '',
+        errorMess: 'Special Characters and Numbers are not allowed, + @ # . ? / < , > _ - < . * & % ^ % $ # @ : ; / ( ) = { } [ ] /'
+    },
+
+        state: {
+        state: /^[a-z ]+$/i,
+        stateValue: '',
+        errorMess: 'Special Characters and Numbers are not allowed, + @ # . ? / < , > _ - < . * & % ^ % $ # @ : ; / ( ) = { } [ ] /'
+    },
+
+        lga: {
+        lga: /^[a-z ]+$/i,
+        lgaValue: '',
         errorMess: 'Special Characters and Numbers are not allowed, + @ # . ? / < , > _ - < . * & % ^ % $ # @ : ; / ( ) = { } [ ] /'
     },
     
@@ -126,11 +147,12 @@ const validate = {
 }
 
 Array.from(checkbox_wrapper).forEach(checkbox =>{
-
+    console.log(checkbox.querySelector('input').checked);
     if(checkbox.querySelector('input').checked){
-        let inputValu = checkbox.querySelector('input')
-        validate['other'].otherValue = inputValu.value;
-       
+        let inputValue = checkbox.querySelector('input');
+        
+        validate['other'].otherValue = inputValue.value;
+        console.log(inputValue.value);       
     }
     checkbox.querySelector('input').addEventListener('change', e=>{
 
@@ -144,27 +166,27 @@ Array.from(checkbox_wrapper).forEach(checkbox =>{
         
     })
 })
-document.querySelector('.other').addEventListener('keyup', e=>{
-    document.querySelector('#otherRadio').setAttribute('checked', 'true')
+// document.querySelector('.other').addEventListener('keyup', e=>{
+//     document.querySelector('#otherRadio').setAttribute('checked', 'true')
        
-        let field = e.target.attributes.name.value;
-        let result = validate[field][field].test(e.target.value); 
+//         let field = e.target.attributes.name.value;
+//         let result = validate[field][field].test(e.target.value); 
        
 
-        if(result){
-            e.target.nextElementSibling.innerHTML = '';
-            validate[field]['otherValue']  = e.target.value; 
-            e.target.classList.add('borderSuccess');
-            e.target.classList.remove('borderDanger');
+//         if(result){
+//             e.target.nextElementSibling.innerHTML = '';
+//             validate[field]['otherValue']  = e.target.value; 
+//             e.target.classList.add('borderSuccess');
+//             e.target.classList.remove('borderDanger');
 
-        }else {
-            e.target.nextElementSibling.innerHTML = validate[field].errorMess;
-            validate[field]['otherValue']  = ''; 
-            e.target.classList.add('borderDanger');
-            e.target.classList.remove('borderSuccess');
-        }
+//         }else {
+//             e.target.nextElementSibling.innerHTML = validate[field].errorMess;
+//             validate[field]['otherValue']  = ''; 
+//             e.target.classList.add('borderDanger');
+//             e.target.classList.remove('borderSuccess');
+//         }
     
-})
+// })
 
 
 inputs.forEach(input => {
@@ -181,6 +203,11 @@ inputs.forEach(input => {
 
             validate[field].firstNameValue = e.target.value;
             validate[field].lastNameValue = e.target.value;
+
+            validate[field].countryValue = e.target.value;
+            validate[field].stateValue = e.target.value;
+            validate[field].lgaValue = e.target.value;
+
             validate[field].schoolNameValue = e.target.value;
             validate[field].departmentValue = e.target.value;
             validate[field].followshipValue = e.target.value;
@@ -196,6 +223,11 @@ inputs.forEach(input => {
 
             validate[field].firstNameValue = ''
             validate[field].lastNameValue = ''
+
+            validate[field].countryValue = ''
+            validate[field].stateValue = ''
+            validate[field].lgaValue = ''
+
             validate[field].schoolNameValue = ''
             validate[field].departmentValue = ''
             validate[field].followshipValue = ''
@@ -215,6 +247,11 @@ form.addEventListener('submit', e => {
 
     let lastName = validate['lastName'].lastNameValue;
     let firstName = validate['firstName'].firstNameValue;
+
+    let country = validate['country'].countryValue;
+    let state = validate['state'].stateValue;
+    let lga = validate['lga'].lgaValue;
+
     let schoolName = validate['schoolName'].schoolNameValue;
     let department = validate['department'].departmentValue;
     let followship = validate['followship'].followshipValue;
@@ -223,13 +260,18 @@ form.addEventListener('submit', e => {
     let email = validate['email'].emailValue;
     let otherValue = validate['other'].otherValue
 
-
     Array.from(inputs).forEach(input => {
 
         if (input.attributes.name.value === 'level') return;
 
         validate[input.attributes.name.value].firstNameValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
         validate[input.attributes.name.value].lastNameValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
+
+        validate[input.attributes.name.value].countryValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
+        validate[input.attributes.name.value].stateValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
+        validate[input.attributes.name.value].lgaValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
+
+
         // validate[input.attributes.name.value].schoolNameValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
         validate[input.attributes.name.value].departmentValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
         validate[input.attributes.name.value].followshipValue === '' ? input.nextElementSibling.innerHTML = 'This is field required' : null;
@@ -244,6 +286,9 @@ form.addEventListener('submit', e => {
             {
                 firstName:firstName,
                 lastName:lastName,
+                country:country,
+                state:state,
+                lga:lga,
                 schoolName:schoolName,
                 department:department,
                 followship:followship,
